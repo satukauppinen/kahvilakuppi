@@ -33,18 +33,39 @@
     <!-- intro -->
     <section id="home" class="section bg1">
         <div class="content-box">
-            <h1>Otsikko/Meistä</h1>
-            <p>esittelytekstiäEsittelyteksiä Esittelyteksiä Esittelyteksiä Esittelyteksiä Esittelyteksiä Esittelyteksiä
-                EsittelyteksiäEsittelyteksiäEsittelyteksiäEsittelyteksiä Esittelyteksiä</p>
+            <h1>Meistä</h1>
+            <p>Olemme rauhallinen ja lämminhenkinen kahvila aivan Rovaniemen ytimessä. </br> Leivomme upeat tuotteemme paikan päällä. </br>Tule nauttimaan rennosta kahvihetkestä paikan päälle tai voit myös ottaa tuotteita mukaan.  </p>
+            <img src="kuvat/kahvikuppila.png" alt="Kahvila Kuppi">
         </div>
     </section>
 
-    <!-- intro jatko -->
+    <!-- tarjoukset -->
     <section id="about" class="section bg2">
-        <div class="content-box">
-            <h2>Otsikko/lisäämeistä</h2>
-            <p>esittelytekstiäEsittelyteksiä Esittelyteksiä Esittelyteksiä Esittelyteksiä Esittelyteksiä Esittelyteksiä
-                EsittelyteksiäEsittelyteksiäEsittelyteksiäEsittelyteksiä Esittelyteksiä</p>
+        <div class="carousel-container">
+            <h2 class="carousel-title">Erikoistarjoukset</h2>
+            <div class="carousel">
+                <div class="carousel-card">
+                    <img src="kuvat/kakku.png" alt="Kahvi ja pulla">
+                    <div class="card-text">
+                        <h3>Erikoistarjous</h3>
+                        <p>Kahvi ja päivän pulla<br><strong>3€</strong></p>
+                    </div>
+                </div>
+                <div class="carousel-card active">
+                    <img src="kuvat/kakku.png" alt="Aamiainen">
+                    <div class="card-text">
+                        <h3>Kahvipassilla</h3>
+                        <p>joka 10. kahvi ilmaiseksi<br></p>
+                    </div>
+                </div>
+                <div class="carousel-card">
+                    <img src="kuvat/kakku.png" alt="Kakku ja kahvi">
+                    <div class="card-text">
+                        <h3>Tulossa</h3>
+                        <p>Joulumyyjäiset<br><strong></p>
+                    </div>
+                </div>
+            </div>
         </div>
     </section>
 
@@ -156,6 +177,24 @@
                 navLinks.classList.remove('active');
             });
         });
+
+        // Carousel automaattinen kierto
+        const carouselCards = document.querySelectorAll('.carousel-card');
+        let currentIndex = 1; // aloita keskimmäisestä kortista
+
+        function rotateCarousel() {
+            // poista active-luokka kaikilta
+            carouselCards.forEach(card => card.classList.remove('active'));
+            
+            // lisää active-luokka nykyiselle kortille
+            carouselCards[currentIndex].classList.add('active');
+            
+            // siirry seuraavaan korttiin
+            currentIndex = (currentIndex + 1) % carouselCards.length;
+        }
+
+        // vaihda kortteja 4 sekunnin välein
+        setInterval(rotateCarousel, 4000);
     </script>
 </body>
 
