@@ -131,27 +131,27 @@ button {
 
 /* taustakuvat */
 .bg1 {
-    background-image: url('kuvat/sample.jpg');
+    background-image: url('kuvat/kahvilabg.png');
 }
 
 .bg2 {
-    background-image: url('kuvat/sample.jpg');
+    background-image: url('kuvat/kahvilabg.png');
 }
 
 .bg3 {
-    background-image: url('kuvat/sample.jpg');
+    background-image: url('kuvat/kahvilabg.png');
 }
 
 .bg4 {
-    background-image: url('kuvat/sample.jpg');
+    background-image: url('kuvat/kahvilabg.png');
 }
 
 .bg5 {
-    background-image: url('kuvat/sample.jpg');
+    background-image: url('kuvat/kahvilabg.png');
 }
 
 .bg6 {
-    background-image: url('kuvat/sample.jpg');
+    background-image: url('kuvat/kahvilabg.png');
 }
 
 /* content boxit */
@@ -221,23 +221,53 @@ button {
     border-radius: 1rem;
     overflow: hidden;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-    transition: all 1.5s ease;
     width: 250px;
     opacity: 0.6;
     transform: scale(0.85);
+    animation: cardCycle 12s ease-in-out infinite;
 }
 
-.carousel-card.active {
-    opacity: 1;
-    transform: scale(1.1);
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
-    z-index: 10;
+/* Ensimmäinen kortti alkaa himmeänä */
+.carousel-card:nth-child(1) {
+    animation-delay: 0s;
+}
+
+/* Toinen kortti alkaa kirkkaana (aktiivinen) */
+.carousel-card:nth-child(2) {
+    animation-delay: 4s;
+}
+
+/* Kolmas kortti alkaa himmeänä */
+.carousel-card:nth-child(3) {
+    animation-delay: 8s;
+}
+
+/* CSS-animaatio joka kiertää korttien tiloja */
+@keyframes cardCycle {
+    0%, 25% {
+        opacity: 0.6;
+        transform: scale(0.85);
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        z-index: 1;
+    }
+    33.33%, 58.33% {
+        opacity: 1;
+        transform: scale(1.1);
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+        z-index: 10;
+    }
+    66.66%, 100% {
+        opacity: 0.6;
+        transform: scale(0.85);
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        z-index: 1;
+    }
 }
 
 .carousel-card img {
     width: 100%;
     height: 200px;
-    object-fit: cover;
+    object-fit: contain;
     display: block;
 }
 
