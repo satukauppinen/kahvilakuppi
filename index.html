@@ -158,24 +158,7 @@
         </div>
     </footer>
 
-    <script>
-        // menu hampurgeri
-        const menuToggle = document.getElementById('menu-toggle');
-        const navLinks = document.querySelector('.nav-links');
 
-        menuToggle.addEventListener('click', () => {
-            menuToggle.classList.toggle('open');
-            navLinks.classList.toggle('active');
-        });
-
-        // sulje menu
-        document.querySelectorAll('.nav-links a').forEach(link => {
-            link.addEventListener('click', () => {
-                menuToggle.classList.remove('open');
-                navLinks.classList.remove('active');
-            });
-        });
-    </script>
 </body>
 
 </html>
